@@ -1,0 +1,16 @@
+<h3>Add a new product</h3>
+
+
+
+Name:<input type="text" ng-model = "newproduct.product_name"><br><br>
+Image:<input type="text" ng-model = "newproduct.image"><br><br>
+Description:<input type="text" ng-model = "newproduct.description"><br><br>
+Initial Quantity: <input type="number" min="1" max="1000" name="quantity" ng-model= "newproduct.quantity"> <br><br>
+<input type="submit" ng-click = "addProduct()" value="create"><br><br><br>
+
+
+<div style="display: inline-block; padding-left: 50px; margin-top: 40px;" ng-repeat = "product in products">
+	<img src="{{product.image}}" style="width:90px;height:90px; ">
+	<h6>{{product.description}} <input type="submit" ng-click = "editproduct(product)" value="edit"></h6>
+	<h6>({{product.quantity}} left)</h6>
+</div>

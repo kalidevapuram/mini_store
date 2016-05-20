@@ -1,0 +1,34 @@
+
+<!doctype html>
+<html ng-app = 'Myapp'>
+<head>
+	<title>Orders and customers</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"/></script>
+ 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+	
+	<script src ='app.js'></script>
+	<script src = "controllers/mongoose/customerscontroller.js"></script>
+	<script src = "controllers/mongoose/orderscontroller.js"></script>
+	<script src = "controllers/mongoose/productscontroller.js"></script>
+	<script src = "controllers/mongoose/dashboardscontroller.js"></script>
+	<script src = "factories/orderfactory.js"></script>
+	<script src = "factories/customerfactory.js"></script>
+	<script src = "factories/productfactory.js"></script>
+
+
+</head>
+<body>
+
+	<div class = 'container'>
+		<a href="#/">dashboard</a> | <a href="#/products">products</a> | <a href="#/orders">orders</a> | <a href="#/customers">customers</a> | <a href="#/">settings</a>  
+		<div ng-view = " "></div>
+		
+	</div>
+</body>
+</html>

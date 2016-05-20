@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
+</head>
+<body>
+
+
+
+{{orders}}
+<h3>Add a new order</h3>
+
+Customer: 
+
+<select name="customer" ng-model= "neworder.customer_name">
+	
+  <option  ng-repeat = "customer in customers | filter: filter_name" value="{{customer.customer_name}}">{{customer.customer_name}}
+
+  </option>
+  </select>
+  <br><br>
+
+<select name="product" ng-model= "neworder.description">
+
+  <option  ng-repeat = "product in products | filter: filter_name" value="{{product.description}}, {{product.quantity}}">{{product.description}}
+
+  </option>
+</select>
+Order:
+
+<input type="number" min="1" max="100" name="quantity" ng-model= "neworder.quantity"> 
+
+  
+
+<br><br><br>
+<input type="submit" ng-click = "addorder(neworder)" value="order">
+
+<br><br>
+
+
+
+<input type="text" ng-model="filte" placeholder="filter"><br>
+    {{filte}}<br><br><br>
+	<table border="1" cellspacing="5" cellpadding="5" >
+
+	<thead>
+	<tr>
+		<th>Customer Name</th>
+		<th>Product</th>
+		<th>Quantity</th>
+		<th>Date</th>
+	</tr>
+	</thead>
+	<tbody >
+
+		<tr ng-repeat = "order in orders | filter: filte">
+			<td>{{order.customer_name}}</td>
+			<td>{{order.description}}</td>
+			<td>{{order.quantity}} </td>
+
+			
+			<td>{{order.date |  date:'MMMM d, y'}}</td>
+			
+		</tr>
+	</tbody>
+</table>
+
+
+</body>
+</html>

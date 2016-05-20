@@ -1,0 +1,32 @@
+<h1>e-commerce store</h1>
+<div>
+	<input type="text" ng-model="filter_name" placeholder="filter">
+        {{filter_name}}
+</div>
+<div>
+	<div style="display: inline-block; padding-left: 50px; margin-top: 40px;" ng-repeat = "product in products ">
+
+		<img src="{{product.image}}" style="width:100px;height:100px; ">
+		<h6>{{product.description}}</h6>
+		<h6>({{product.quantity}} left)</h6>
+		
+	</div>
+	<p><a href="#/products">show more...</a></p>
+	</div>
+<div>
+<h3>New Customers:</h3>
+
+	
+	<span ng-repeat = "customer in customers ">
+		<h5>{{customer.customer_name}} joined the store ({{customer.date | date:'MMMM d, y' }}) </h5>
+	</span>
+	<p><a href="#/products">show more...</a></p>
+</div>
+<div>
+<h3>Recent Orders</h3>
+
+<span ng-repeat = "order in orders | filter: filter_name">
+		<h5>{{order.customer_name}} purchased {{order.quantity}} {{order.description}}s ... ({{order.date | date:'MMMM d, y' }}) </h5>
+	</span>
+	<p><a href="#/products">show more...</a></p>
+</div>

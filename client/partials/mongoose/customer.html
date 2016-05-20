@@ -1,0 +1,33 @@
+<h3>Add a new customer</h3>
+<div ng-show = 'error' style="color: red">
+	{{error}}
+
+</div>
+
+
+Customer Name:<input type="text" ng-model = "newcustomer.customer_name">
+<input type="submit" ng-click = "addCustomer()" value="add"><br><br><br>
+
+
+
+<input type="text" ng-model="filter_name" placeholder="filter"><br>
+    {{filter_name}}<br><br><br>
+
+<table border="0" cellspacing="5" cellpadding="5" >
+
+	<thead>
+	<tr>
+		<th>Customer Name</th>
+		<th>Created Date</th>
+		<th>Actions</th>
+	</tr>
+	</thead>
+	<tbody >
+
+		<tr ng-repeat = "customer in customers | filter: filter_name track by $index">
+			<td>{{customer.customer_name}}</td>
+			<td>{{customer.date | date:'MMMM d, y'}}</td>
+			<td><input type='submit' value='Remove' ng-click='deleteCustomer(customer)'> </td>
+		</tr>
+	</tbody>
+</table>
